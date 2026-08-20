@@ -1,0 +1,185 @@
+/**
+ * @fileOverview المتغيرات والأنماط العامة
+ * نظام الألوان المركزي - تغيير الألوان من هنا فقط (انظر أيضاً config/theme.js)
+ */
+
+/* استيراد متغيرات الألوان والأنماط */
+@import "./variables.css";
+
+@font-face { font-family: Alexandria; src: url("../assets/fonts/Alexandria-Thin.ttf"); font-weight: 100; font-display: swap; }
+@font-face { font-family: Alexandria; src: url("../assets/fonts/Alexandria-ExtraLight.ttf"); font-weight: 200; font-display: swap; }
+@font-face { font-family: Alexandria; src: url("../assets/fonts/Alexandria-Light.ttf"); font-weight: 300; font-display: swap; }
+@font-face { font-family: Alexandria; src: url("../assets/fonts/Alexandria-Regular.ttf"); font-weight: 400; font-display: swap; }
+@font-face { font-family: Alexandria; src: url("../assets/fonts/Alexandria-Medium.ttf"); font-weight: 500; font-display: swap; }
+@font-face { font-family: Alexandria; src: url("../assets/fonts/Alexandria-SemiBold.ttf"); font-weight: 600; font-display: swap; }
+@font-face { font-family: Alexandria; src: url("../assets/fonts/Alexandria-Bold.ttf"); font-weight: 700; font-display: swap; }
+@font-face { font-family: Alexandria; src: url("../assets/fonts/Alexandria-ExtraBold.ttf"); font-weight: 800; font-display: swap; }
+@font-face { font-family: Alexandria; src: url("../assets/fonts/Alexandria-Black.ttf"); font-weight: 900; font-display: swap; }
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Respect the user's OS-level reduced motion preference */
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-primary);
+  /* Solid, theme-aware surface. A soft radial primary-tint wash keeps the
+     "sleek" feel without fighting readability or the light/dark contrast
+     the theme establishes via MUI's background.default. */
+  background-color: var(--color-background-default);
+  background-image:
+    radial-gradient(circle at 12% 8%, var(--color-primary-transparent), transparent 45%),
+    radial-gradient(circle at 88% 92%, var(--color-secondary-transparent), transparent 45%);
+  background-attachment: fixed;
+  color: var(--color-text-primary);
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal);
+}
+
+/* تنميط الروابط */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* تنميط الـ buttons */
+button {
+  font-family: var(--font-family-primary);
+  transition: all var(--transition-fast);
+}
+
+/* تنميط المدخلات */
+input,
+textarea,
+select {
+  font-family: var(--font-family-primary);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-transparent);
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  background-color: var(--color-disabled);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* تنميط الـ headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* تنميط الجداول */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: var(--color-background-paper);
+  color: var(--color-text-primary);
+  border-bottom: var(--border-width-thick) solid var(--color-border);
+  padding: 12px;
+  text-align: start;
+  font-weight: var(--font-weight-semibold);
+}
+
+td {
+  border-bottom: var(--border-width) solid var(--color-divider);
+  padding: 12px;
+  color: var(--color-text-primary);
+}
+
+tr:hover {
+  background-color: var(--color-background-hover);
+}
+
+/* ===== Scrollbars =====
+ * Thin, low-contrast but still visible scrollbars rather than hiding them
+ * entirely — fully hidden scrollbars remove an important navigation/affordance
+ * cue for sighted users (a WCAG "predictable UI" concern). MUI's CssBaseline
+ * override in config/theme.js applies the same treatment inside the app;
+ * this covers any non-MUI scroll containers.
+ */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-scrollbar-thumb);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* ===== Accessible focus ring for any non-MUI focusable element ===== */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===== RTL: align input text to the right ===== */
+[dir="rtl"] .MuiOutlinedInput-input {
+  text-align: start;
+}

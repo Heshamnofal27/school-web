@@ -1,0 +1,199 @@
+/**
+ * @fileOverview CSS Variables المركزية للتطبيق
+ * @description: نظام ألوان موحد يعكس نفس القيم المستخدمة في src/config/theme.js
+ * ملاحظة: مصدر الحقيقة الأساسي هو ملف الـ theme الخاص بـ MUI. هذه المتغيرات
+ * موجودة لأي أنماط CSS خام (خارج نظام sx/theme) مثل الطباعة أو عناصر لا تستخدم MUI.
+ *
+ * كيفية الاستخدام:
+ * background-color: var(--color-primary);
+ * color: var(--color-text-primary);
+ * border: 1px solid var(--color-border);
+ */
+
+:root {
+  --color-primary: #1D4ED8;
+  --color-primary-light: #3B82F6;
+  --color-primary-dark: #1E3A8A;
+  --color-primary-transparent: rgba(29, 78, 216, 0.08);
+
+  --color-secondary: #0F766E;
+  --color-secondary-light: #14B8A6;
+  --color-secondary-dark: #134E4A;
+  --color-secondary-transparent: rgba(15, 118, 110, 0.08);
+
+  --color-success: #15803D;
+  --color-success-light: #22C55E;
+  --color-success-dark: #14532D;
+
+  --color-error: #B91C1C;
+  --color-error-light: #EF4444;
+  --color-error-dark: #7F1D1D;
+
+  --color-warning: #B45309;
+  --color-warning-light: #F59E0B;
+  --color-warning-dark: #78350F;
+
+  --color-info: #0369A1;
+  --color-info-light: #38BDF8;
+  --color-info-dark: #0C4A6E;
+
+  --color-background-main: #FFFFFF;
+  --color-background-paper: #FFFFFF;
+  --color-background-default: #F8FAFC;
+  --color-background-hover: #F1F5F9;
+
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-disabled: #94A3B8;
+  --color-text-on-primary: #FFFFFF;
+  --color-text-on-secondary: #FFFFFF;
+
+  --color-border: #E2E8F0;
+  --color-border-light: #F1F5F9;
+  --color-border-dark: #CBD5E1;
+  --color-divider: #E2E8F0;
+
+  --color-disabled: rgba(15, 23, 42, 0.08);
+  --color-hover: rgba(15, 23, 42, 0.04);
+  --color-active: rgba(15, 23, 42, 0.08);
+  --color-shadow: rgba(15, 23, 42, 0.10);
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 2px 6px rgba(15, 23, 42, 0.07);
+  --shadow-lg: 0 4px 10px rgba(15, 23, 42, 0.08);
+  --shadow-xl: 0 12px 32px rgba(15, 23, 42, 0.10);
+
+  --border-radius-sm: 8px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 14px;
+  --border-radius-xl: 20px;
+
+  --border-width: 1px;
+  --border-width-thick: 2px;
+
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+
+  --font-family-primary: Alexandria, system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 28px;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --color-scrollbar-thumb: #CBD5E1;
+  --color-scrollbar-track: transparent;
+}
+
+/**
+ * Dark Mode
+ * يتفعّل عبر [data-theme="dark"] الذي يضبطه ThemeContext.jsx على <body>
+ * يستخدم خلفيات داكنة عميقة (وليست رمادية باهتة) مع ألوان زاهية بدرجة كافية
+ * لتحقيق تباين WCAG AA فوق الخلفيات الداكنة.
+ */
+[data-theme="dark"] {
+  --color-primary: #60A5FA;
+  --color-primary-light: #93C5FD;
+  --color-primary-dark: #3B82F6;
+  --color-primary-transparent: rgba(96, 165, 250, 0.16);
+
+  --color-secondary: #2DD4BF;
+  --color-secondary-light: #5EEAD4;
+  --color-secondary-dark: #14B8A6;
+  --color-secondary-transparent: rgba(45, 212, 191, 0.16);
+
+  --color-success: #4ADE80;
+  --color-success-light: #86EFAC;
+  --color-success-dark: #22C55E;
+
+  --color-error: #F87171;
+  --color-error-light: #FCA5A5;
+  --color-error-dark: #EF4444;
+
+  --color-warning: #FBBF24;
+  --color-warning-light: #FCD34D;
+  --color-warning-dark: #F59E0B;
+
+  --color-info: #38BDF8;
+  --color-info-light: #7DD3FC;
+  --color-info-dark: #0EA5E9;
+
+  --color-background-main: #0B1220;
+  --color-background-paper: #161F32;
+  --color-background-default: #0B1220;
+  --color-background-hover: #1E293B;
+
+  --color-text-primary: #F1F5F9;
+  --color-text-secondary: #94A3B8;
+  --color-text-disabled: #64748B;
+
+  --color-border: rgba(148, 163, 184, 0.16);
+  --color-border-light: rgba(148, 163, 184, 0.10);
+  --color-border-dark: rgba(148, 163, 184, 0.28);
+  --color-divider: rgba(148, 163, 184, 0.16);
+
+  --color-disabled: rgba(241, 245, 249, 0.08);
+  --color-hover: rgba(241, 245, 249, 0.06);
+  --color-active: rgba(241, 245, 249, 0.10);
+  --color-shadow: rgba(0, 0, 0, 0.4);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.42);
+  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.45);
+
+  --color-scrollbar-thumb: #334155;
+  --color-scrollbar-track: transparent;
+}
+
+/**
+ * Utility Classes للألوان الشائعة
+ * يمكن استخدامها مباشرة في الـ JSX لعناصر لا تمر عبر sx/theme
+ */
+
+/* Text Colors */
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-error { color: var(--color-error); }
+.text-success { color: var(--color-success); }
+.text-warning { color: var(--color-warning); }
+
+/* Background Colors */
+.bg-primary { background-color: var(--color-primary); color: var(--color-text-on-primary); }
+.bg-secondary { background-color: var(--color-secondary); color: var(--color-text-on-secondary); }
+.bg-success { background-color: var(--color-success); color: #FFFFFF; }
+.bg-error { background-color: var(--color-error); color: #FFFFFF; }
+.bg-warning { background-color: var(--color-warning); color: #FFFFFF; }
+
+/* Border Colors */
+.border-primary { border: 1px solid var(--color-primary); }
+.border-secondary { border: 1px solid var(--color-secondary); }
+.border-error { border: 1px solid var(--color-error); }
+
+/* Shadow Utilities */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+
+/* Visually-hidden utility for screen-reader-only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
